@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <!-- LINK ALLA SITEMAP -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .header {
+            background-color: rgb(67, 1, 1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .menu {
+            position: absolute;
+            left: 20px;
+            cursor: pointer;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+            vertical-align: middle;
+        }
+
+        .dropdown {
+            display: none;
+            position: fixed;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0px 4px 8px rgb(67, 1, 1);
+            left: 10px;
+            top: 70px;
+            width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .dropdown a:hover {
+            background-color: lightgray;
+        }
+
+        .slider {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        .slider img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slider img.active {
+            opacity: 1;
+        }
+
+        .info {
+            background-color: rgb(67, 1, 1);
+            color: white;
+            padding: 40px;
+        }
+
+        .big-image {
+            width: 100%;
+            height: 80vh;
+            object-fit: cover;
+            background-color: black;
+            display: block;
+        }
+
+        .contacts {
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        @media (max-width: 1024px) {
+            .logo img {
+                height: 70px;
+            }
+            .info {
+                padding: 30px;
+                font-size: 16px;
+            }
+            .big-image {
+                height: 60vh;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                padding: 15px;
+            }
+            .menu {
+                position: relative;
+                left: 0;
+                margin-bottom: 10px;
+            }
+            .logo img {
+                height: 60px;
+            }
+            .info {
+                padding: 20px;
+                font-size: 14px;
+            }
+            .slider {
+                height: 60vh;
+            }
+            .big-image {
+                height: 40vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="menu" onclick="toggleMenu()">Menu</div>
+        <div class="logo">
+            <a href="index.html">
+                <img src="Fraschina Giardini Bianco.png" alt="Logo Fraschina Giardini">
+            </a>
+        </div>
+    </div>
+
+    <div class="dropdown" id="dropdownMenu">
+        <a href="index.html">Home</a>
+        <a href="chi-siamo.html">Chi Siamo</a>
+        <a href="servizi.html">Servizi</a>
+        <a href="contatti.html">Contatti</a>
+    </div>
+
+    <div class="content">
+        <div class="slider">
+            <img src="Screenshot 2025-09-23 alle 19.58.45.png" class="active" alt="Foto 1">
+            <img src="Screenshot 2025-09-23 alle 18.14.43.png" alt="Foto 2">
+            <img src="Screenshot 2025-09-23 alle 20.40.33.png" alt="Foto 3">
+        </div>
+
+        <div class="info"> 
+            <h2>Fraschina Giardini</h2>
+            <h4>
+                <p>Curiamo i tuoi spazi verdi come fossero i nostri, con professionalità e passione:</p>
+                <p>diamo forma alla natura con cura e precisione, offrendo servizi di manutenzione,</p> 
+                <p>cura del prato e soluzioni agricole personalizzate.</p>
+            </h4>
+        </div>
+
+        <img src="Screenshot 2025-09-20 alle 14.26.05.png" alt="Foto grande" class="big-image">
+    </div>
+
+    <div class="contacts">
+        <h3>Contatti</h3>
+        <p>Telefono: 076 816 38 38 </p>
+        <p>Email: info@fraschinagiardini.com</p>
+        <p>Instagram: @fraschina_giardini</p>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("dropdownMenu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+
+        let current = 0;
+        const slides = document.querySelectorAll(".slider img");
+
+        function showNextSlide() {
+            slides[current].classList.remove("active");
+            current = (current + 1) % slides.length;
+            slides[current].classList.add("active");
+        }
+
+        setInterval(showNextSlide, 4000);
+    </script>
+</body>
+</html>

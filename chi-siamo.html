@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servizi</title>
+
+    <!-- LINK ALLA SITEMAP -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .header {
+            background-color: rgb(67, 1, 1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .menu {
+            position: absolute;
+            left: 20px;
+            cursor: pointer;
+        }
+        .logo img {
+            height: 80px;
+            width: auto;
+            vertical-align: middle;
+        }
+        .dropdown {
+            display: none;
+            position: fixed;
+            background-color: white;
+            box-shadow: 0px 4px 8px rgb(67, 1, 1);
+            left: 10px;
+            top: 70px;
+            width: 150px;
+            z-index: 1000;
+        }
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            color: rgb(13, 49, 2);
+            text-decoration: none;
+        }
+        .dropdown a:hover {
+            background-color: lightgray;
+        }
+        .content {
+            padding-top: 120px;
+        }
+        .content img {
+            width: 60%;
+            margin: 20px 0;
+            max-width: 900px;
+            height: auto;
+        }
+        .info {
+            background-color: rgb(67, 1, 1);
+            color: white;
+            padding: 30px;
+        }
+        .contacts {
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        @media (max-width: 1024px) {
+            .logo img {
+                height: 70px;
+            }
+            .content img {
+                width: 80%;
+            }
+            .info {
+                padding: 20px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                padding: 15px;
+            }
+            .menu {
+                position: relative;
+                left: 0;
+                margin-bottom: 10px;
+            }
+            .logo img {
+                height: 60px;
+            }
+            .content img {
+                width: 95%;
+            }
+            .info {
+                padding: 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="menu" onclick="toggleMenu()">Menu</div>
+        <div class="logo">
+            <a href="index.html">
+                <img src="Fraschina Giardini Bianco.png" alt="Logo Fraschina Giardini">
+            </a>
+        </div>
+    </div>
+
+    <div class="dropdown" id="dropdownMenu">
+        <a href="index.html">Home</a>
+        <a href="chi-siamo.html">Chi Siamo</a>
+        <a href="servizi.html">Servizi</a>
+        <a href="contatti.html">Contatti</a>
+    </div>
+
+    <div class="content">
+        <img src="Screenshot 2025-09-26 alle 14.59.29.png" alt="Immagine Servizi">
+        <div class="info">
+            <h4>Fraschina Giardini è un'azienda specializzata nella cura e nella manutenzione degli spazi verdi.</h4> 
+            <h4>Trasformiamo giardini, terrazzi e aree verdi in luoghi unici, unendo competenza tecnica e passione per la natura.</h4>
+        </div>
+        <img src="Screenshot 2025-09-26 alle 14.50.17.png" alt="Immagine Servizi 2">
+    </div>
+
+    <div class="contacts">
+        <h3>Contatti</h3>
+        <p>Telefono: 076 816 38 38</p>
+        <p>Email: info@fraschinagiardini.com</p>
+        <p>Instagram: @fraschina_giardini</p>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("dropdownMenu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
